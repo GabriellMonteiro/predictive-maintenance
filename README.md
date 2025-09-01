@@ -1,59 +1,52 @@
-📊 Projeto de Manutenção Preditiva
+# 📊 Manutenção Preditiva
 
-Este projeto aplica técnicas de aprendizado de máquina para prever falhas em equipamentos industriais com base em dados históricos de sensores.
-O objetivo é auxiliar na manutenção preditiva, reduzindo custos e aumentando a confiabilidade dos processos.
+Este projeto apresenta um modelo de **manutenção preditiva** utilizando aprendizado de máquina.  
+O objetivo é prever falhas em equipamentos industriais antes que elas ocorram, possibilitando **redução de custos** e **aumento da eficiência operacional**.
 
-🚀 Tecnologias utilizadas
+---
 
-Python 3.x
+## 🚀 Tecnologias Utilizadas
+- Python 3.10+
+- Pandas
+- Matplotlib
+- Scikit-learn
 
-Pandas
+---
 
-NumPy
+## 🔍 Fluxo do Projeto
+1. **Coleta de Dados** – Leitura e pré-processamento do dataset.
+2. **Análise Exploratória** – Avaliação de valores nulos e distribuição das falhas.
+3. **Treinamento** – Uso de um modelo de classificação (Random Forest).
+4. **Avaliação** – Métricas de desempenho do modelo.
+5. **Visualização** – Geração de gráficos para interpretação dos resultados.
 
-Matplotlib
+---
 
-Scikit-learn
+## 📊 Exemplo de Gráfico
 
-📂 Estrutura do projeto
-├── src/
-│   ├── data_loader.py    # Carregamento e tratamento dos dados
-│   ├── main.py           # Script principal de execução
-│   ├── model.py          # Definição e treinamento do modelo
-│   ├── visualization.py  # Funções de gráficos e análise
-├── data/
-│   ├── train.csv         # Dados de treino
-│   ├── test.csv          # Dados de teste
-├── README.md             # Documentação do projeto
+Abaixo temos um gráfico ilustrando as principais falhas detectadas:
 
-⚙️ Como executar
+![Gráfico de Manutenção Preditiva](https://quickchart.io/chart?c=%7B%22type%22%3A%22bar%22%2C%22data%22%3A%7B%22labels%22%3A%5B%22FDF%20(Falha%20Desgaste%20Ferramenta)%22%2C%22FDC%20(Falha%20Dissipa%C3%A7%C3%A3o%20Calor)%22%2C%22FP%20(Falha%20Pot%C3%AAncia)%22%2C%22FTE%20(Falha%20Tens%C3%A3o%20Excessiva)%22%2C%22FA%20(Falha%20Atuador)%22%5D%2C%22datasets%22%3A%5B%7B%22label%22%3A%22Quantidade%20de%20Falhas%22%2C%22data%22%3A%5B6880%2C6896%2C3450%2C2980%2C2100%5D%7D%5D%7D%7D)
 
-Clone este repositório:
+---
 
-git clone https://github.com/seuusuario/manutencao-preditiva.git
-cd manutencao-preditiva
+## 📈 Resultados Esperados
+- Detecção antecipada de falhas.
+- Aumento da vida útil dos equipamentos.
+- Redução de paradas não planejadas.
+- Melhor alocação de recursos para manutenção.
 
+---
 
-Crie e ative um ambiente virtual (opcional, mas recomendado):
-
+## ▶️ Como Executar
+```bash
+# Criar ambiente virtual (opcional)
 python -m venv venv
 source venv/bin/activate   # Linux/Mac
 venv\Scripts\activate      # Windows
 
-
-Instale as dependências:
-
+# Instalar dependências
 pip install -r requirements.txt
 
-
-Execute o projeto:
-
-python src/main.py
-
-📊 Resultados
-
-Relatórios de classificação
-
-Gráficos de importância das variáveis
-
-Curva de aprendizado e matriz de confusão
+# Rodar o projeto
+python main.py
