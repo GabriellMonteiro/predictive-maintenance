@@ -1,8 +1,8 @@
+from sklearn.metrics import f1_score, hamming_loss
 import matplotlib.pyplot as plt
 import seaborn as sns
 import pandas as pd
 import os
-from sklearn.metrics import f1_score, hamming_loss
 import numpy as np
 
 def plot_eda(df, falhas, save_dir="plots"):
@@ -108,10 +108,6 @@ def plot_feature_importance(model, feature_names, top_n=20, save_dir="plots"):
     """
     Plota a importância das features para modelos que possuem feature_importances_
     """
-    import os
-    import pandas as pd
-    import matplotlib.pyplot as plt
-    import seaborn as sns
 
     if not os.path.exists(save_dir):
         os.makedirs(save_dir)
@@ -176,7 +172,6 @@ def compare_models(trained_models, X_val, y_val, trained_cols, save_dir="plots")
     - trained_cols: dict com as colunas usadas em cada modelo
     - save_dir: diretório onde os gráficos serão salvos
     """
-    import os
     if not os.path.exists(save_dir):
         os.makedirs(save_dir)
 
@@ -236,7 +231,6 @@ def plot_maintenance_risk(predictions_df, save_dir="plots"):
     predictions_df: DataFrame retornado por predict_test (com colunas de falhas)
     """
 
-    import os
     if not os.path.exists(save_dir):
         os.makedirs(save_dir)
 

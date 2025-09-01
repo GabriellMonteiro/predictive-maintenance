@@ -3,6 +3,8 @@ from preprocessing import preprocess_data
 from model import split_data, train_multiple_models
 from predict import predict_test
 from visualization import plot_maintenance_risk, compare_models, plot_feature_importance, plot_eda
+from metrics.metrics_client import plot_class_metrics, plot_accuracy, plot_confusion_matrix, plot_roc_curves
+from api.fetch_data import send_csv
 import pandas as pd
 
 def main():
@@ -28,7 +30,6 @@ def main():
     # Exploração dos dados (EDA)
     # ==============================
     plot_eda(train, falhas)
-
 
     # ==============================
     # Pré-processamento
@@ -65,7 +66,6 @@ def main():
     plot_feature_importance(trained_models["Random Forest"], feature_names)
     plot_feature_importance(trained_models["XGBoost"], feature_names)
 
-
     # ==============================
     # Avaliar e comparar modelos
     # ==============================
@@ -74,6 +74,16 @@ def main():
     # Plot de risco de manutenção preditiva
     plot_maintenance_risk(final_preds)
 
+    # ==============================
+    # CONEXÃO COM A API
+    # ==============================
+    data = send_csv(csv_path="predicoes.csv", username="gabrielbrava@outlook.com.br", password="197428")
+
+    # Plotar gráficos das métricas
+    plot_class_metrics(data, save=True)
+    plot_accuracy(data, save=True)
+    plot_confusion_matrix(data, class_idx=3, save=True)
+    plot_roc_curves(data, save=True)
 
 if __name__ == "__main__":
     main()
