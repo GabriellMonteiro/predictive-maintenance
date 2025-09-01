@@ -5,13 +5,18 @@ from predict import predict_test
 from visualization import plot_maintenance_risk, compare_models, plot_feature_importance, plot_eda
 from metrics.metrics_client import plot_class_metrics, plot_accuracy, plot_confusion_matrix, plot_roc_curves
 from api.fetch_data import send_csv
+from dotenv import load_dotenv
 import pandas as pd
+import os
 
 def main():
 
-    train_path = "../data/bootcamp_train.csv"
-    test_path = "../data/bootcamp_test.csv"
-    
+    # Carrega variáveis do .env
+    load_dotenv()
+
+    train_path = os.getenv("TRAIN_PATH")
+    test_path = os.getenv("TEST_PATH")
+
     falhas = [
         "FDF (Falha Desgaste Ferramenta)", 
         "FDC (Falha Dissipacao Calor)", 
@@ -77,7 +82,13 @@ def main():
     # ==============================
     # CONEXÃO COM A API
     # ==============================
-    data = send_csv(csv_path="predicoes.csv", username="gabrielbrava@outlook.com.br", password="197428")
+
+    username = os.getenv("USER_CONNECTION")
+    password = os.getenv("PASS_CONNECTION")
+
+    csv_path = "predicoes.csv"
+
+    data = send_csv(csv_path, username, password)
 
     # Plotar gráficos das métricas
     plot_class_metrics(data, save=True)
