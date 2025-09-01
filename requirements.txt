@@ -1,0 +1,15 @@
+python -m venv monteiro
+.\monteiro\Scripts\activate
+
+pip install pandas numpy matplotlib seaborn scikit-learn
+python main.py
+
+pandas
+numpy
+scikit-learn
+matplotlib
+xgboost
+
+cd src
+python -m pip install -r ..\requirements.txt
+python -m main
